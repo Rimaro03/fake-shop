@@ -1,7 +1,7 @@
 import { alpha, Box, InputBase, styled, Toolbar, Typography } from "@mui/material";
 
-export const MenuBox = styled(Box)(({ selected, theme }) => ({
-  width: "80%",
+export const MenuBox = styled(Box)(({ theme }) => ({
+  width: "90%",
   borderTopLeftRadius: theme.shape.borderRadius,
   borderBottomLeftRadius: theme.shape.borderRadius,
   ":hover": { cursor: "pointer", backgroundColor: theme.palette.secondary.main },
@@ -28,7 +28,6 @@ export const SearchBox = styled(Box)(({ theme }) => ({
     backgroundColor: alpha(theme.palette.common.white, 0.40),
   },
   marginLeft: 0,
-  width: '100%',
   [theme.breakpoints.up('sm')]: {
     marginLeft: theme.spacing(1),
     width: 'auto',
@@ -70,6 +69,4 @@ export const DailychoiceContainer = styled(Box)(({ theme }) => ({
   padding: 40,
   borderRadius: theme.shape.borderRadius,
   backgroundColor: "white",
-  textAlign: "left",
-  width: "100%"
 }))

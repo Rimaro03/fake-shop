@@ -6,7 +6,7 @@ import MobileDailychoice from './MobileDailychoice';
 
 const DailyChoice = () => {
     const theme = useTheme();
-    const matches = useMediaQuery(theme.breakpoints.down("lg"))
+    const matches = useMediaQuery(theme.breakpoints.down("md"))
     return (
         <>
             {!matches ? <DesktopDailychoice /> : <MobileDailychoice />}

@@ -5,19 +5,22 @@ import theme from "./style/theme";
 import Men from "./pages/Men";
 import Women from "./pages/Women";
 import Jewelry from "./pages/Jewelry";
+import { UIProvider } from "./context/ui";
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/men" element={<Men />} />
-          <Route path="/women" element={<Women />} />
-          <Route path="/jewelry" element={<Jewelry />} />
-          <Route path="*" element={<p>404 page not found!</p>} />
-        </Routes>
-      </BrowserRouter>
+      <UIProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Homepage />} />
+            <Route path="/men" element={<Men />} />
+            <Route path="/women" element={<Women />} />
+            <Route path="/jewelry" element={<Jewelry />} />
+            <Route path="*" element={<p>404 page not found!</p>} />
+          </Routes>
+        </BrowserRouter>
+      </UIProvider>
     </ThemeProvider>
   );
 }

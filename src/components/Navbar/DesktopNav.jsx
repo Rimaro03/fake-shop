@@ -34,7 +34,7 @@ const DesktopNav = (props) => {
                     justifyContent={"space-around"}
                     height={"50%"}
                 >
-                    <MenuBox selected={true}>
+                    <MenuBox>
                         <MenuItem
                             variant={"h6"}
                             onClick={() => {

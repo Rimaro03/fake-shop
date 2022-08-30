@@ -5,7 +5,7 @@ import MobileAppbar from './MobileAppbar';
 
 const Appbar = () => {
     const theme = useTheme();
-    const matches = useMediaQuery(theme.breakpoints.down("md"))
+    const matches = useMediaQuery(theme.breakpoints.down("lg"))
 
 
     return (

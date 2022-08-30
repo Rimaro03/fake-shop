@@ -4,9 +4,9 @@ import React from 'react'
 import DesktopNav from './DesktopNav';
 import MobileNav from './MobileNav';
 
-const Nav = () => {
+const Nav = (props) => {
     const theme = useTheme();
-    const matches = useMediaQuery(theme.breakpoints.down("md"))
+    const matches = useMediaQuery(theme.breakpoints.down("lg"))
     return (
         <>
             {!matches ? <DesktopNav /> : <MobileNav />}

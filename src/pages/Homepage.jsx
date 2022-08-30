@@ -9,12 +9,7 @@ const Homepage = () => {
         <>
             <Nav />
             <Appbar />
-            <Box sx={{
-                width: `calc(100% - 450px)`,
-                ml: `340px`
-            }}>
-                <DailyChoice />
-            </Box>
+            <DailyChoice />
         </>
     )
 }
