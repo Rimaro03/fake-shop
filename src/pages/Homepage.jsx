@@ -5,9 +5,10 @@ import DailyChoice from '../components/DailyChoice/DailyChoice'
 import Nav from '../components/Navbar/Nav'
 
 const Homepage = () => {
+    const backgrounds = ["transparent", "transparent", "transparent"]
     return (
         <>
-            <Nav />
+            <Nav backgrounds={backgrounds} />
             <Appbar />
             <DailyChoice />
         </>

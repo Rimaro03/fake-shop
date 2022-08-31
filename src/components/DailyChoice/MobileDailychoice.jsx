@@ -4,35 +4,33 @@ import { Box, Button, Rating, Typography, useMediaQuery } from '@mui/material';
 import React, { useState } from 'react';
 import { DailychoiceContainer } from '../../style/components';
 
-const MobileDailychoice = () => {
-    const [value, setValue] = useState(2);
+const MobileDailychoice = (props) => {
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.down("sm"))
+    const product = props.product
+    const [value, setValue] = useState(product.rating.rate);
     return (
         <DailychoiceContainer display={"flex"} flexDirection={"column"} alignItems={"center"}>
             <Typography variant="h2" fontWeight={"bold"}>TODAY'S BEST CHOICE</Typography>
-            <img src={"https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"} alt="daily choice" width={"35%"} height={"30%"} />
+            <img src={product.image} alt="daily choice" width={"35%"} height={"30%"} />
             <Box>
-                <Typography variant="h6" pt={1}>Man's clothing</Typography>
-                <Typography variant="h5" fontWeight={"bold"} pt={1}>Fjallraven - Foldsack No. 1 Backpack,
-                    Fits 15 Laptops</Typography>
-                <Typography variant="h6" pt={1}>Your perfect pack for everyday use and walks in the forest.
-                    Stash your laptop (up to 15 inches) in the padded sleeve,
-                    your everyday</Typography>
+                <Typography variant="h6" pt={1}>{product.category}</Typography>
+                <Typography variant="h5" fontWeight={"bold"} pt={1}>{product.title}</Typography>
+                <Typography variant="h6" pt={1}>{product.description}</Typography>
                 <Box display={"flex"} justifyContent={"space-between"} marginTop={3}>
                     <Box display={"flex"}>
                         <Rating
                             name="size-large"
                             size='large'
+                            precision={0.5}
                             value={value}
-
                             onChange={(event, newValue) => {
                                 setValue(newValue);
                             }}
                         />
-                        <Typography p={0.5}>(120)</Typography>
+                        <Typography p={0.5}>({product.rating.count})</Typography>
                     </Box>
-                    <Typography variant={"h5"} fontWeight={"bold"}>$109.99</Typography>
+                    <Typography variant={"h5"} fontWeight={"bold"}>$ {product.price}</Typography>
                 </Box>
                 <Box pt={3} width={"100%"} display={"flex"} justifyContent={"space-between"}>
                     <Button variant="contained" startIcon={<ShoppingBag />} sx={{ width: "40%" }}>{!matches ? "BUY NOW" : ""}</Button>

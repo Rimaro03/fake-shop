@@ -4,9 +4,12 @@ import { Box } from "@mui/system";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { MenuBox, MenuItem } from "../../style/components";
+import { palette } from "../../style/theme";
 
 const DesktopNav = (props) => {
     const navigate = useNavigate();
+    console.log(props)
+
     return (
         <Drawer open={true} variant="permanent">
             <Box
@@ -34,7 +37,7 @@ const DesktopNav = (props) => {
                     justifyContent={"space-around"}
                     height={"50%"}
                 >
-                    <MenuBox>
+                    <MenuBox sx={{ backgroundColor: props.backgrounds[0] }}>
                         <MenuItem
                             variant={"h6"}
                             onClick={() => {
@@ -44,7 +47,7 @@ const DesktopNav = (props) => {
                             MEN'S CLOTHING
                         </MenuItem>
                     </MenuBox>
-                    <MenuBox>
+                    <MenuBox sx={{ backgroundColor: props.backgrounds[1] }}>
                         <MenuItem
                             variant={"h6"}
                             onClick={() => {
@@ -54,7 +57,7 @@ const DesktopNav = (props) => {
                             WOMEN'S CLOTHING
                         </MenuItem>
                     </MenuBox>
-                    <MenuBox>
+                    <MenuBox sx={{ backgroundColor: props.backgrounds[2] }}>
                         <MenuItem
                             variant={"h6"}
                             onClick={() => {

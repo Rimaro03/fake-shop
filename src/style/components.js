@@ -70,3 +70,12 @@ export const DailychoiceContainer = styled(Box)(({ theme }) => ({
   borderRadius: theme.shape.borderRadius,
   backgroundColor: "white",
 }))
+
+export const ProductListContainer = styled(Box)(({ theme }) => ({
+  marginTop: 20,
+  padding: 40,
+  borderRadius: theme.shape.borderRadius,
+  backgroundColor: "transparent",
+}))
+
+export const ProductCard = styled(Box)(({ theme }) => ({}))

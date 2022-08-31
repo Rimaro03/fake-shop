@@ -1,21 +1,20 @@
 import { useTheme } from '@emotion/react';
 import { Backdrop, CircularProgress, useMediaQuery } from '@mui/material';
 import React, { useEffect, useState } from 'react'
-import DesktopDailychoice from './DesktopDailychoice';
-import MobileDailychoice from './MobileDailychoice';
+import DesktopProductList from './DesktopProductList';
+import MobileProductList from './MobileProductList';
 
-const DailyChoice = () => {
+const ProductList = (props) => {
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.down("md"))
     const [isLoading, setIsLoading] = useState(true);
-    const [product, setProduct] = useState();
+    const [productList, setProductList] = useState([]);
 
     useEffect(() => {
-        const randomProduct = Math.floor(Math.random() * 19) + 1
-        fetch(`https://fakestoreapi.com/products/${randomProduct}`)
+        fetch(`https://fakestoreapi.com/products/category/${props.category}`)
             .then(res => res.json())
             .then((json) => {
-                setProduct(json);
+                setProductList(json);
                 setIsLoading(false);
             })
     }, [])
@@ -28,10 +27,10 @@ const DailyChoice = () => {
             >
                 <CircularProgress color="inherit" />
             </Backdrop> : <>
-                {!matches ? <DesktopDailychoice product={product} /> : <MobileDailychoice product={product} />}
+                {!matches ? <DesktopProductList productList={productList} /> : <MobileProductList productList={productList} />}
             </>}
         </>
     )
 }
 
-export default DailyChoice
+export default ProductList

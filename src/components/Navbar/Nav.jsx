@@ -7,9 +7,10 @@ import MobileNav from './MobileNav';
 const Nav = (props) => {
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.down("lg"))
+    const backgrounds = props.backgrounds
     return (
         <>
-            {!matches ? <DesktopNav /> : <MobileNav />}
+            {!matches ? <DesktopNav backgrounds={backgrounds} /> : <MobileNav backgrounds={backgrounds} />}
         </>
     )
 }
