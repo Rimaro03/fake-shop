@@ -22,7 +22,7 @@ const DesktopDailychoice = (props) => {
                 <Box display={"flex"} flexDirection={"column"} justifyContent={"space-around"} width={"40%"} padding={5}>
                     <Typography variant="h2" fontWeight={"bold"}>TODAY'S BEST<br /> CHOICE</Typography>
                     <Box>
-                        <Typography variant="subtitle1" pt={1}>{product.category}</Typography>
+                        <Typography variant="subtitle1" color="text.secondary" pt={5}>{product.category}</Typography>
                         <Typography variant="h5" fontWeight={"bold"} pt={1}>{product.title}</Typography>
                         <Typography variant="h6" pt={1}>{product.description}</Typography>
                         <Box display={"flex"} justifyContent={"space-between"} marginTop={3}>

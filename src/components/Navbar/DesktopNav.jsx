@@ -1,13 +1,23 @@
-import { AccountCircle } from "@mui/icons-material";
-import { Divider, Drawer, Icon, List, Typography } from "@mui/material";
+import { AccountCircle, Logout } from "@mui/icons-material";
+import { Divider, Drawer, IconButton, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
+import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
 import { MenuBox, MenuItem } from "../../style/components";
-import { palette } from "../../style/theme";
 
 const DesktopNav = (props) => {
     const navigate = useNavigate();
+    const [cookie, setCookie, removeCookie] = useCookies()
+    const userList = JSON.parse(window.localStorage.getItem("userList"))
+    const currentUser = JSON.parse(window.localStorage.getItem("currentUser"))
+    const user = userList.find(user => user.username == currentUser.username)
+
+    const handleLogout = () => {
+        navigate("/login")
+        window.localStorage.removeItem("currentUser")
+        removeCookie("session")
+    }
 
     return (
         <Drawer open={true} variant="permanent">
@@ -69,11 +79,19 @@ const DesktopNav = (props) => {
                 </Box>
                 <Box>
                     <Divider />
-                    <Box display={"flex"}>
-                        <AccountCircle fontSize="large" sx={{ margin: 4 }} />
-                        <Typography variant={"h6"} margin={4}>
-                            Mario Rossi
-                        </Typography>
+                    <Box display={"flex"} justifyContent={"space-between"} p={2}>
+                        <AccountCircle fontSize="large" sx={{ margin: "auto" }} />
+                        <Box>
+                            <Typography variant={"h6"} >
+                                {user.name.firstname} {user.name.lastname}
+                            </Typography>
+                            <Typography variant={"subtitle2"} color={"text.secondary"}>
+                                {user.address.street} {user.address.number}, {user.address.city}
+                            </Typography>
+                        </Box>
+                        <IconButton fontSize="medium" sx={{ margin: "auto" }} onClick={handleLogout}>
+                            <Logout />
+                        </IconButton>
                     </Box>
                 </Box>
             </Box>

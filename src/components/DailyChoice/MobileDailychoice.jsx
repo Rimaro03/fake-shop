@@ -14,7 +14,7 @@ const MobileDailychoice = (props) => {
             <Typography variant="h2" fontWeight={"bold"}>TODAY'S BEST CHOICE</Typography>
             <img src={product.image} alt="daily choice" width={"35%"} height={"30%"} />
             <Box>
-                <Typography variant="h6" pt={1}>{product.category}</Typography>
+                <Typography variant="subtitle1" color="text.secondary" pt={5}>{product.category}</Typography>
                 <Typography variant="h5" fontWeight={"bold"} pt={1}>{product.title}</Typography>
                 <Typography variant="h6" pt={1}>{product.description}</Typography>
                 <Box display={"flex"} justifyContent={"space-between"} marginTop={3}>

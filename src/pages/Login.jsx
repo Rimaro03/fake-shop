@@ -21,6 +21,9 @@ const Login = () => {
         if (cookie.session) {
             navigate("/")
         }
+        fetch('https://fakestoreapi.com/users')
+            .then(res => res.json())
+            .then(json => window.localStorage.setItem("userList", JSON.stringify(json)))
     }, [])
 
     const handleSubmit = () => {
@@ -45,6 +48,11 @@ const Login = () => {
             })
             .then(json => {
                 setCookie("session", json["token"], { path: "/" });
+                window.localStorage.setItem("currentUser", JSON.stringify({
+                    username: username,
+                    password: password
+                }))
+                window.localStorage.setItem("cart", "")
                 navigate("/");
                 setIsLoading(false)
             })
