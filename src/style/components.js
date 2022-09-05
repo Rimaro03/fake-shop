@@ -1,4 +1,5 @@
-import { alpha, Box, InputBase, styled, Toolbar, Typography } from "@mui/material";
+import { alpha, Box, Button, Card, Container, InputBase, styled, Toolbar, Typography } from "@mui/material";
+import { palette } from "./theme";
 
 export const MenuBox = styled(Box)(({ theme }) => ({
   width: "90%",
@@ -78,4 +79,38 @@ export const ProductListContainer = styled(Box)(({ theme }) => ({
   backgroundColor: "transparent",
 }))
 
-export const ProductCard = styled(Box)(({ theme }) => ({}))
+export const ProductCard = styled(Card)(({ theme }) => ({
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "space-around",
+  alignItems: "center",
+  textAlign: "center",
+  transition: "0.2s",
+  ":hover": {
+    scale: "1.04",
+  },
+}))
+
+export const CartButton = styled(Button)(() => ({
+  width: "100%",
+  margin: 0,
+  padding: 10,
+  color: "black",
+  alignSelf: "flex-end",
+  backgroundColor: palette.primary.main,
+  borderRadius: 0,
+  ":hover": {
+    backgroundColor: palette.primary.main,
+  }
+}))
+
+export const FormContainer = styled(Box)(({ theme }) => ({
+  backgroundColor: "white",
+  borderRadius: theme.shape.borderRadius,
+  width: "fit-content",
+  margin: "auto",
+  padding: 30,
+  textAlign: "center",
+  alignItems: "center",
+  marginTop: 80
+}))

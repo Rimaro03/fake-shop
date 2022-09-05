@@ -2,7 +2,6 @@ import { useTheme } from '@emotion/react';
 import { Backdrop, CircularProgress, useMediaQuery } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import DesktopProductList from './DesktopProductList';
-import MobileProductList from './MobileProductList';
 
 const ProductList = (props) => {
     const theme = useTheme();
@@ -26,9 +25,7 @@ const ProductList = (props) => {
                 open={isLoading}
             >
                 <CircularProgress color="inherit" />
-            </Backdrop> : <>
-                {!matches ? <DesktopProductList productList={productList} /> : <MobileProductList productList={productList} />}
-            </>}
+            </Backdrop> : <DesktopProductList productList={productList} />}
         </>
     )
 }

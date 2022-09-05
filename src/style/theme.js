@@ -6,6 +6,9 @@ export const palette = {
     },
     secondary: {
         main: "#F0DEFF",
+    },
+    black: {
+        main: "#000000"
     }
 }
 

@@ -62,7 +62,7 @@ const MobileNav = () => {
                                 navigate("/jewelry");
                             }}
                         >
-                            JEWELRY
+                            JEWELERY
                         </MenuItem>
                     </MenuBox>
                 </Box>

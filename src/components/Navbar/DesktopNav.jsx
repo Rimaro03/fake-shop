@@ -8,7 +8,6 @@ import { palette } from "../../style/theme";
 
 const DesktopNav = (props) => {
     const navigate = useNavigate();
-    console.log(props)
 
     return (
         <Drawer open={true} variant="permanent">
@@ -64,7 +63,7 @@ const DesktopNav = (props) => {
                                 navigate("/jewelry");
                             }}
                         >
-                            JEWELRY
+                            JEWELERY
                         </MenuItem>
                     </MenuBox>
                 </Box>
