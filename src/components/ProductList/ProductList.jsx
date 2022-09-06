@@ -5,7 +5,6 @@ import DesktopProductList from './DesktopProductList';
 
 const ProductList = (props) => {
     const theme = useTheme();
-    const matches = useMediaQuery(theme.breakpoints.down("md"))
     const [isLoading, setIsLoading] = useState(true);
     const [productList, setProductList] = useState([]);
 
@@ -20,6 +19,7 @@ const ProductList = (props) => {
 
     return (
         <>
+
             {isLoading ? <Backdrop
                 sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
                 open={isLoading}

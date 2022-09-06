@@ -1,6 +1,7 @@
-import { AccountCircle } from '@mui/icons-material';
-import { Box, Divider, Drawer, MenuItem, Typography } from '@mui/material'
+import { AccountCircle, Logout } from '@mui/icons-material';
+import { Box, Divider, Drawer, IconButton, MenuItem, Typography } from '@mui/material'
 import React, { useState } from 'react'
+import { useCookies } from 'react-cookie';
 import { useNavigate } from 'react-router-dom';
 import { useUIContext } from '../../context/ui';
 import { MenuBox } from '../../style/components';
@@ -8,6 +9,17 @@ import { MenuBox } from '../../style/components';
 const MobileNav = () => {
     const { drawerOpen, setDrawerOpen } = useUIContext();
     const navigate = useNavigate();
+    const [cookie, setCookie, removeCookie] = useCookies()
+    const userList = JSON.parse(window.localStorage.getItem("userList"))
+    const currentUser = JSON.parse(window.localStorage.getItem("currentUser"))
+    const user = userList.find(user => user.username == currentUser.username)
+
+    const handleLogout = () => {
+        navigate("/login")
+        window.localStorage.removeItem("currentUser")
+        removeCookie("session")
+    }
+
     return (
         <Drawer open={drawerOpen} onClose={() => { setDrawerOpen(false) }}>
             <Box
@@ -69,10 +81,18 @@ const MobileNav = () => {
                 <Box>
                     <Divider />
                     <Box display={"flex"}>
-                        <AccountCircle fontSize="large" sx={{ margin: 4 }} />
-                        <Typography variant={"h6"} margin={4}>
-                            Mario Rossi
-                        </Typography>
+                        <AccountCircle fontSize="large" sx={{ margin: "auto" }} />
+                        <Box>
+                            <Typography variant={"h6"} >
+                                {user.name.firstname} {user.name.lastname}
+                            </Typography>
+                            <Typography variant={"subtitle2"} color={"text.secondary"}>
+                                {user.address.street} {user.address.number}, {user.address.city}
+                            </Typography>
+                        </Box>
+                        <IconButton fontSize="medium" sx={{ margin: "auto" }} onClick={handleLogout}>
+                            <Logout />
+                        </IconButton>
                     </Box>
                 </Box>
             </Box>

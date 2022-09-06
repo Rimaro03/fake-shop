@@ -17,9 +17,12 @@ const Jewelry = () => {
     }
   }, []);
   return <>
-    {cookie.session ? <><Nav backgrounds={backgrounds} />
+    {cookie.session ? <>
+      <Nav backgrounds={backgrounds} />
       <Appbar />
-      <ProductList category={"jewelery"} /></> : <></>}
+      <ProductList category={"jewelery"} /></>
+      :
+      <></>}
   </>;
 };
 

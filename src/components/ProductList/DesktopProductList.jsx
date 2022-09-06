@@ -1,6 +1,6 @@
 import React from 'react'
 import { useTheme } from '@emotion/react';
-import { Card, CardActions, CardContent, CardMedia, Grid, IconButton, Rating, Typography, useMediaQuery } from '@mui/material'
+import { Backdrop, Card, CardActions, CardContent, CardMedia, Grid, IconButton, Rating, Typography, useMediaQuery } from '@mui/material'
 import { CartButton, ProductCard, ProductListContainer } from '../../style/components';
 import { Box } from '@mui/system';
 import { AddShoppingCart } from '@mui/icons-material';

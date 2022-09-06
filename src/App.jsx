@@ -8,6 +8,7 @@ import Jewelry from "./pages/Jewelry";
 import Login from "./pages/Login";
 import { UIProvider } from "./context/ui";
 import { CookiesProvider } from "react-cookie";
+import Product from "./pages/Product";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
               <Route path="/men" element={<Men />} />
               <Route path="/women" element={<Women />} />
               <Route path="/jewelry" element={<Jewelry />} />
+              <Route path="/product" element={<Product />} />
               <Route path="*" element={<p>404 page not found!</p>} />
             </Routes>
           </BrowserRouter>
