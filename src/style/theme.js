@@ -71,6 +71,11 @@ const theme = createTheme({
         },
       },
     },
+    MuiMenu: {
+      styleOverrides: {
+        paper: {},
+      },
+    },
   },
   typography: {
     fontFamily: [

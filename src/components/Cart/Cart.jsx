@@ -1,7 +1,15 @@
-import { Backdrop, CircularProgress, Grid, Menu } from "@mui/material";
+import {
+  Backdrop,
+  CircularProgress,
+  Grid,
+  Menu,
+  MenuItem,
+} from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useEffect, useState } from "react";
 import { useUIContext } from "../../context/ui";
+import { palette } from "../../style/theme";
+import CartItem from "./CartItem";
 
 const Cart = (props) => {
   const { cartOpen, setCartOpen } = useUIContext();
@@ -14,7 +22,15 @@ const Cart = (props) => {
     fetch("https://fakestoreapi.com/carts/user/1")
       .then((res) => res.json())
       .then((json) => {
-        setCart(json);
+        let productList = [];
+        json[0]["products"].forEach((product) => {
+          fetch(`https://fakestoreapi.com/products/${product.productId}`)
+            .then((res) => res.json())
+            .then((json) => {
+              productList.push(json);
+            });
+        });
+        setCart(productList);
         setLoading(false);
       });
   }, []);
@@ -40,15 +56,13 @@ const Cart = (props) => {
       open={Boolean(cartOpen)}
       onClose={handleClose}
     >
-      {cart.length <= 0 ? (
-        <CircularProgress size={"30px"} color="inherit" />
-      ) : (
-        <Box>
-          {cart[0]["products"].map((item, index) => {
-            return <p key={index}>{item.productId}</p>;
-          })}
-        </Box>
-      )}
+      {cart.map((item, index) => {
+        return (
+          <MenuItem key={index}>
+            <CartItem product={item} />
+          </MenuItem>
+        );
+      })}
     </Menu>
   );
 };
