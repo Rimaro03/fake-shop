@@ -6,7 +6,7 @@ import {
   Menu,
   TextField,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useUIContext } from "../../context/ui";
 import {
   AppbarContainer,
@@ -22,13 +22,16 @@ const DesktopAppbar = () => {
   const [options, setOptions] = useState([]);
   const { cartOpen, setCartOpen } = useUIContext();
 
-  useState(() => {
+  useEffect(() => {
     setLoading(true);
     fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
       .then((json) => {
         setOptions(json);
         setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
       });
   }, []);
 

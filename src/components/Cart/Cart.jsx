@@ -20,7 +20,7 @@ const Cart = (props) => {
   }, []);
 
   const handleClose = () => {
-    setCartOpen(false), console.log(null);
+    setCartOpen(false);
   };
 
   return (

@@ -7,23 +7,28 @@ import ProductList from "../components/ProductList/ProductList";
 import { palette } from "../style/theme";
 
 const Jewelry = () => {
-  const backgrounds = ["transparent", "transparent", palette.secondary.main]
+  const backgrounds = ["transparent", "transparent", palette.secondary.main];
   const [cookie, setCookie] = useCookies();
   const navigate = useNavigate();
 
   useEffect(() => {
     if (!cookie.session) {
-      navigate("/login")
+      navigate("/login");
     }
   }, []);
-  return <>
-    {cookie.session ? <>
-      <Nav backgrounds={backgrounds} />
-      <Appbar />
-      <ProductList category={"jewelery"} /></>
-      :
-      <></>}
-  </>;
+  return (
+    <>
+      {cookie.session ? (
+        <>
+          <Nav backgrounds={backgrounds} />
+          <Appbar />
+          <ProductList category={"jewelery"} />
+        </>
+      ) : (
+        <></>
+      )}
+    </>
+  );
 };
 
 export default Jewelry;

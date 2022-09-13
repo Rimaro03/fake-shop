@@ -1,11 +1,24 @@
-import { alpha, Box, Button, Card, Container, InputBase, styled, Toolbar, Typography } from "@mui/material";
+import {
+  alpha,
+  Box,
+  Button,
+  Card,
+  Container,
+  InputBase,
+  styled,
+  Toolbar,
+  Typography,
+} from "@mui/material";
 import { palette } from "./theme";
 
 export const MenuBox = styled(Box)(({ theme }) => ({
   width: "90%",
   borderTopLeftRadius: theme.shape.borderRadius,
   borderBottomLeftRadius: theme.shape.borderRadius,
-  ":hover": { cursor: "pointer", backgroundColor: theme.palette.secondary.main },
+  ":hover": {
+    cursor: "pointer",
+    backgroundColor: theme.palette.secondary.main,
+  },
 }));
 
 export const MenuItem = styled(Typography)(() => ({
@@ -19,47 +32,47 @@ export const AppbarContainer = styled(Toolbar)(() => ({
   display: "flex",
   justifyContent: "space-between",
   width: "auto",
-}))
+}));
 
 export const SearchBox = styled(Box)(({ theme }) => ({
-  position: 'relative',
+  position: "relative",
   borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.50),
-  '&:hover': {
-    backgroundColor: alpha(theme.palette.common.white, 0.40),
+  backgroundColor: alpha(theme.palette.common.white, 0.5),
+  "&:hover": {
+    backgroundColor: alpha(theme.palette.common.white, 0.4),
   },
   marginLeft: 0,
-  [theme.breakpoints.up('sm')]: {
+  [theme.breakpoints.up("sm")]: {
     marginLeft: theme.spacing(1),
-    width: 'auto',
+    width: "auto",
   },
 }));
 
 export const SearchIconWrapper = styled(Box)(({ theme }) => ({
   padding: theme.spacing(0, 1),
-  height: '100%',
-  position: 'absolute',
-  pointerEvents: 'none',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
+  height: "100%",
+  position: "absolute",
+  pointerEvents: "none",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
   backgroundColor: theme.palette.primary.main,
   borderTopLeftRadius: theme.shape.borderRadius,
-  borderBottomLeftRadius: theme.shape.borderRadius
+  borderBottomLeftRadius: theme.shape.borderRadius,
 }));
 
 export const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: 'inherit',
-  '& .MuiInputBase-input': {
+  color: "inherit",
+  "& .MuiInputBase-input": {
     padding: theme.spacing(1, 1, 1, 0),
     // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      width: '30ch',
-      '&:focus': {
-        width: '40ch',
+    transition: theme.transitions.create("width"),
+    width: "100%",
+    [theme.breakpoints.up("sm")]: {
+      width: "30ch",
+      "&:focus": {
+        width: "40ch",
       },
     },
   },
@@ -70,14 +83,14 @@ export const DailychoiceContainer = styled(Box)(({ theme }) => ({
   padding: 40,
   borderRadius: theme.shape.borderRadius,
   backgroundColor: "white",
-}))
+}));
 
 export const ProductListContainer = styled(Box)(({ theme }) => ({
   marginTop: 20,
   padding: 40,
   borderRadius: theme.shape.borderRadius,
   backgroundColor: "transparent",
-}))
+}));
 
 export const ProductCard = styled(Card)(({ theme }) => ({
   display: "flex",
@@ -89,7 +102,7 @@ export const ProductCard = styled(Card)(({ theme }) => ({
   ":hover": {
     scale: "1.04",
   },
-}))
+}));
 
 export const CartButton = styled(Button)(() => ({
   width: "100%",
@@ -101,8 +114,8 @@ export const CartButton = styled(Button)(() => ({
   borderRadius: 0,
   ":hover": {
     backgroundColor: palette.primary.main,
-  }
-}))
+  },
+}));
 
 export const FormContainer = styled(Box)(({ theme }) => ({
   backgroundColor: "white",
@@ -112,5 +125,5 @@ export const FormContainer = styled(Box)(({ theme }) => ({
   padding: 30,
   textAlign: "center",
   alignItems: "center",
-  marginTop: 80
-}))
+  marginTop: 80,
+}));

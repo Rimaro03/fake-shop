@@ -7,21 +7,29 @@ import ProductList from "../components/ProductList/ProductList";
 import { palette } from "../style/theme";
 
 const Men = () => {
-  const backgrounds = [palette.secondary.main, "transparent", "transparent"]
+  const backgrounds = [palette.secondary.main, "transparent", "transparent"];
   const [cookie, setCookie] = useCookies();
   const navigate = useNavigate();
 
   useEffect(() => {
     if (!cookie.session) {
       console.log(1);
-      navigate("/login")
+      navigate("/login");
     }
   }, []);
-  return <>
-    {cookie.session ? <><Nav backgrounds={backgrounds} />
-      <Appbar />
-      <ProductList category={"men's clothing"} /></> : <></>}
-  </>;
+  return (
+    <>
+      {cookie.session ? (
+        <>
+          <Nav backgrounds={backgrounds} />
+          <Appbar />
+          <ProductList category={"men's clothing"} />
+        </>
+      ) : (
+        <></>
+      )}
+    </>
+  );
 };
 
 export default Men;
