@@ -1,23 +1,38 @@
-import { Card, CardMedia, Typography } from "@mui/material";
+import { Card, CardMedia, MenuItem, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
 
 const CartItem = (props) => {
   const product = props.product;
   return (
-    <Card sx={{ display: "flex" }}>
-      <CardMedia
-        component="img"
-        image={product.image}
-        alt="product image"
-        sx={{ width: 100 }}
-      />
-      <Box>
-        <Typography component="div" variant="h6" width={"50%"}>
-          {product.title}
-        </Typography>
-      </Box>
-    </Card>
+    <MenuItem sx={{ textOverflow: "ellipsis" }}>
+      <Card
+        sx={{
+          display: "flex",
+          width: "500px",
+          boxShadow: 0,
+          p: 1,
+          m: 1,
+          textOverflow: "ellipsis",
+        }}
+      >
+        <CardMedia
+          component="img"
+          image={product.image}
+          alt="product image"
+          sx={{ width: 70 }}
+        />
+        <Box width={"100%"} p={1} sx={{ textOverflow: "ellipsis" }}>
+          <Typography
+            component="div"
+            variant="h7"
+            sx={{ textOverflow: "ellipsis" }}
+          >
+            {product.title}
+          </Typography>
+        </Box>
+      </Card>
+    </MenuItem>
   );
 };
 

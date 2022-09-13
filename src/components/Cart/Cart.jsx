@@ -1,6 +1,7 @@
 import {
   Backdrop,
   CircularProgress,
+  Divider,
   Grid,
   Menu,
   MenuItem,
@@ -41,7 +42,7 @@ const Cart = (props) => {
 
   return (
     <Menu
-      sx={{ mt: "45px" }}
+      sx={{ mt: "45px", width: "20%" }}
       id="menu-appbar"
       anchorEl={cartOpen}
       anchorOrigin={{
@@ -57,12 +58,10 @@ const Cart = (props) => {
       onClose={handleClose}
     >
       {cart.map((item, index) => {
-        return (
-          <MenuItem key={index}>
-            <CartItem product={item} />
-          </MenuItem>
-        );
+        return <CartItem product={item} key={index} />;
       })}
+
+      <Divider />
     </Menu>
   );
 };

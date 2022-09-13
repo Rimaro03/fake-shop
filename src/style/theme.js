@@ -73,7 +73,9 @@ const theme = createTheme({
     },
     MuiMenu: {
       styleOverrides: {
-        paper: {},
+        list: {
+          backgroundColor: palette.primary.main,
+        },
       },
     },
   },
